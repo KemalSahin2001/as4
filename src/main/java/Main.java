@@ -9,7 +9,7 @@ public class Main
     public static void main(String[] args){
 
         // Step 0 - read the input parameters
-        DatReader datReader = new DatReader("C:\\Users\\xraef\\Desktop\\Java Projects\\assignment44\\src\\main\\java\\sample_IO\\sample_1\\sample_input.dat");
+        DatReader datReader = new DatReader("C:\\Users\\xraef\\Desktop\\Java Projects\\assignment44\\src\\main\\java\\sample_IO\\sample_2\\yuksekova_input.dat");
 
         String grid_input_file_name = datReader.getStringVar("grid_input_file_name");
         int num_rows = datReader.getIntVar("num_rows");
@@ -22,21 +22,16 @@ public class Main
         Double climbing_cost_per_unit=datReader.getDoubleVar("climbing_cost_per_unit");
 
         // Step 1 - construct map data
-        IMECEPathFinder map = new IMECEPathFinder("C:\\Users\\xraef\\Desktop\\Java Projects\\assignment44\\src\\main\\java\\sample_IO\\sample_1\\" + grid_input_file_name,
+        IMECEPathFinder map = new IMECEPathFinder("C:\\Users\\xraef\\Desktop\\Java Projects\\assignment44\\src\\main\\java\\sample_IO\\sample_2\\" + grid_input_file_name,
                 num_rows, num_cols, max_flying_height, fuel_cost_per_unit, climbing_cost_per_unit);
 
-        /*
+
         // Step 2 - construct DrawingPanel, and get its Graphics context
-        *//**
-          * 0 points if left uncommented
-          * *//*
         // COMMENT OUT THESE LINES BEFORE TURBO TESTING AND SUBMISSION
         DrawingPanel panel = new DrawingPanel(num_rows, num_cols);
         Graphics g = panel.getGraphics();
         map.drawGrayscaleMap(g);
-        *//**
-          * 0 points if left uncommented
-          * *//*
+
 
         // Step 3 - get the most cost-efficient path between source and destination Points
         System.out.println("########## Mission 0 ##########");
@@ -49,17 +44,10 @@ public class Main
             double totalCost = map.getMostEfficientPathCost(shortestPath);
             System.out.println("The most cost-efficient path has a cost of: " + totalCost);
 
-            *//**
-             * 0 points if left uncommented
-             * *//*
 
             map.drawMostEfficientPath(g, shortestPath); // COMMENT OUT THIS LINE BEFORE TURBO TESTING AND SUBMISSION
 
-            *//**
-             * 0 points if left uncommented
-             * *//*
         }
-
         // Step 4 - get the lowest elevation Escape Path towards the West from a source Point
         System.out.println("########## Mission 1 ##########");
         List<Point> leastElevationPath = map.getLowestElevationEscapePath(mission_1_source);
@@ -67,52 +55,8 @@ public class Main
         int totalChange = map.getLowestElevationEscapePathCost(leastElevationPath);
         System.out.println("The escape path has the least elevation cost of: " + totalChange);
 
-        *//**
-         * 0 points if left uncommented
-         * *//*
 
         map.drawLowestElevationEscapePath(g, leastElevationPath);  // COMMENT OUT THIS LINE BEFORE TURBO TESTING AND SUBMISSION
 
-        *//**
-         * 0 points if left uncommented
-         * *//*
-
-
-        *//**
-         * 0 points if left uncommented
-         * *//*
-        // Extra example for drawing map
-        // COMMENT OUT THESE LINES BEFORE TURBO TESTING AND SUBMISSION
-        DrawingPanel panel2 = new DrawingPanel(473, 347);
-        Graphics g2 = panel2.getGraphics();
-        drawFunny(g2, 347, 473, "semester.txt");
-        *//**
-         * 0 points if left uncommented
-         * */
-    }
-
-    public static void drawFunny(Graphics g, int height, int width, String filename) {
-        int[][] grid = new int[height][width];
-        Scanner sc;
-        try {
-            sc = new Scanner(new File(filename));
-            for (int i = 0; i < height; i++) {
-                for (int j = 0; j < width; j++) {
-                    if (sc.hasNextInt()) {
-                        grid[i][j] = sc.nextInt();
-                    }
-                }
-            }
-
-            for (int i = 0; i < height; i++) {
-                for (int j = 0; j < width; j++) {
-                    int value = grid[i][j];
-                    g.setColor(new Color(value, value, value));
-                    g.fillRect(j, i, 1, 1);
-                }
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
     }
 }
