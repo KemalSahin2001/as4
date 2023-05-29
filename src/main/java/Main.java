@@ -45,7 +45,7 @@ public class Main
             System.out.println("The most cost-efficient path has a cost of: " + totalCost);
 
 
-            map.drawMostEfficientPath(g, shortestPath); // COMMENT OUT THIS LINE BEFORE TURBO TESTING AND SUBMISSION
+            //map.drawMostEfficientPath(g, shortestPath); // COMMENT OUT THIS LINE BEFORE TURBO TESTING AND SUBMISSION
 
         }
         // Step 4 - get the lowest elevation Escape Path towards the West from a source Point
